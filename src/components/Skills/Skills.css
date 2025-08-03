@@ -1,0 +1,17 @@
+/* Skills.css */
+.skills { padding: 80px 10%; background: #1f1f2e; color: #fff; text-align: center; }
+.skills h1 {
+  font-size: 48px; margin-bottom: 50px;
+  background: linear-gradient(to right, #df8908, #b415ff);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.skills-grid {
+  display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+}
+.skill-card {
+  background: #2a2a3f; padding: 20px; border-radius: 12px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.skill-card:hover {
+  transform: scale(1.05); box-shadow: 0 0 10px #b415ff;
+}
