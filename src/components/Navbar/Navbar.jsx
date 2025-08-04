@@ -40,8 +40,7 @@
 
 // export default Navbar
 
-// Navbar.jsx
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './Navbar.css';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import menuOpen from '../../assets/menu_open.svg';
@@ -49,33 +48,43 @@ import menuClose from '../../assets/menu_close.svg';
 
 const Navbar = () => {
   const [active, setActive] = useState('home');
-  const menuRef = useRef();
-
-  const openMenu = () => (menuRef.current.style.right = '0');
-  const closeMenu = () => (menuRef.current.style.right = '-300px');
+  const [menuOpenState, setMenuOpenState] = useState(false); // new state
 
   const handleClick = (key) => {
     setActive(key);
-    closeMenu();
+    setMenuOpenState(false); // close on click
   };
 
   const links = [
     ['home', 'Home'],
     ['about', 'About Me'],
     ['skills', 'Skills'],
-    // ['services', 'Services'],
     ['work', 'Projects'],
     ['contact', 'Contact'],
   ];
 
   return (
     <nav className="navbar">
-      <img src={menuOpen} alt="Open menu" className="nav-mob-open" onClick={openMenu} />
-      <ul ref={menuRef} className="nav-menu">
-        <img src={menuClose} alt="Close menu" className="nav-mob-close" onClick={closeMenu} />
+      <img
+        src={menuOpen}
+        alt="Open menu"
+        className="nav-mob-open"
+        onClick={() => setMenuOpenState(true)}
+      />
+      <ul className={`nav-menu ${menuOpenState ? 'open' : ''}`}>
+        <img
+          src={menuClose}
+          alt="Close menu"
+          className="nav-mob-close"
+          onClick={() => setMenuOpenState(false)}
+        />
         {links.map(([key, label]) => (
           <li key={key}>
-            <AnchorLink href={`#${key}`} className="anchor-link" offset={50}>
+            <AnchorLink
+              href={`#${key}`}
+              className="anchor-link"
+              offset={50}
+            >
               <p onClick={() => handleClick(key)}>{label}</p>
             </AnchorLink>
             {active === key && <div className="underline" />}
@@ -83,7 +92,13 @@ const Navbar = () => {
         ))}
       </ul>
       <div className="nav-connect">
-        <AnchorLink href="#contact" className="anchor-link" offset={50}>Hire Me</AnchorLink>
+        <AnchorLink
+          href="#contact"
+          className="anchor-link"
+          offset={50}
+        >
+          Hire Me
+        </AnchorLink>
       </div>
     </nav>
   );

@@ -7,6 +7,7 @@ import MyWork from './components/Mywork/MyWork'
 import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
 import Skills from './components/Skills/Skills'
+import './index.css';
 
 
 const App = () => {
