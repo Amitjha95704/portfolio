@@ -28,7 +28,7 @@ const Hero = () => (
   <section id="home" className="hero">
     <img src={profileImg} alt="Profile" />
     <h1>
-      <span>Hi, I'm Amit,</span> a Full‑Stack Developer
+      <span></span>Full‑Stack Developer
     </h1>
     <p>
       I’m a passionate <span class="highlight-role">Full Stack Developer</span> skilled in Java (Spring Boot, Hibernate), MERN stack (MongoDB, Express, React, Node), and currently seeking a <span class="highlight-role">Java Developer Internship</span> to apply and grow my backend and frontend development skills.
