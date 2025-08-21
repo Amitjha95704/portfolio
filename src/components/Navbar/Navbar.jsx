@@ -40,19 +40,153 @@
 
 // export default Navbar
 
+// import React, { useState } from 'react';
+// import './Navbar.css';
+// import AnchorLink from 'react-anchor-link-smooth-scroll';
+// import menuOpen from '../../assets/menu_open.svg';
+// import menuClose from '../../assets/menu_close.svg';
+
+// const Navbar = () => {
+//   const [active, setActive] = useState('home');
+//   const [menuOpenState, setMenuOpenState] = useState(false); // new state
+
+//   const handleClick = (key) => {
+//     setActive(key);
+//     setMenuOpenState(false); // close on click
+//   };
+
+//   const links = [
+//     ['home', 'Home'],
+//     ['about', 'About Me'],
+//     ['skills', 'Skills'],
+//     ['work', 'Projects'],
+//     ['contact', 'Contact'],
+//   ];
+
+//   return (
+//     <nav className="navbar">
+//       <img
+//         src={menuOpen}
+//         alt="Open menu"
+//         className="nav-mob-open"
+//         onClick={() => setMenuOpenState(true)}
+//       />
+//       <ul className={`nav-menu ${menuOpenState ? 'open' : ''}`}>
+//         <img
+//           src={menuClose}
+//           alt="Close menu"
+//           className="nav-mob-close"
+//           onClick={() => setMenuOpenState(false)}
+//         />
+//         {links.map(([key, label]) => (
+//           <li key={key}>
+//             <AnchorLink
+//               href={`#${key}`}
+//               className="anchor-link"
+//               offset={50}
+//             >
+//               <p onClick={() => handleClick(key)}>{label}</p>
+//             </AnchorLink>
+//             {active === key && <div className="underline" />}
+//           </li>
+//         ))}
+//       </ul>
+//       <div className="nav-connect">
+//         <AnchorLink
+//           href="#contact"
+//           className="anchor-link"
+//           offset={50}
+//         >
+//           Hire Me
+//         </AnchorLink>
+//       </div>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+
+// import React, { useState } from 'react';
+// import './Navbar.css';
+// import AnchorLink from 'react-anchor-link-smooth-scroll';
+// import menuOpen from '../../assets/menu_open.svg';
+// import menuClose from '../../assets/menu_close.svg';
+
+// const Navbar = () => {
+//   const [active, setActive] = useState('home');
+//   const [menuOpenState, setMenuOpenState] = useState(false);
+
+//   const handleClick = (key) => {
+//     setActive(key);
+//     setMenuOpenState(false);
+//   };
+
+//   const links = [
+//     ['home', 'Home'],
+//     ['about', 'About Me'],
+//     ['skills', 'Skills'],
+//     ['work', 'Projects'],
+//     ['contact', 'Contact'],
+//   ];
+
+//   return (
+//     <nav className="navbar">
+//       <img
+//         src={menuOpen}
+//         alt="Open menu"
+//         className="nav-mob-open"
+//         onClick={() => setMenuOpenState(true)}
+//       />
+//       <ul className={`nav-menu ${menuOpenState ? 'open' : ''}`}>
+//         <img
+//           src={menuClose}
+//           alt="Close menu"
+//           className="nav-mob-close"
+//           onClick={() => setMenuOpenState(false)}
+//         />
+//         {links.map(([key, label]) => (
+//           <li key={key}>
+//             <AnchorLink
+//               href={`#${key}`}
+//               className="anchor-link"
+//               offset={50}
+//               onClick={() => handleClick(key)}
+//             >
+//               {label}
+//             </AnchorLink>
+//             {active === key && <div className="underline" />}
+//           </li>
+//         ))}
+//       </ul>
+//       <div className="nav-connect">
+//         <AnchorLink
+//           href="#contact"
+//           className="anchor-link"
+//           offset={50}
+//           onClick={() => handleClick('contact')}
+//         >
+//           Hire Me
+//         </AnchorLink>
+//       </div>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+
+
 import React, { useState } from 'react';
 import './Navbar.css';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
 import menuOpen from '../../assets/menu_open.svg';
 import menuClose from '../../assets/menu_close.svg';
 
 const Navbar = () => {
   const [active, setActive] = useState('home');
-  const [menuOpenState, setMenuOpenState] = useState(false); // new state
+  const [menuOpenState, setMenuOpenState] = useState(false);
 
   const handleClick = (key) => {
     setActive(key);
-    setMenuOpenState(false); // close on click
+    setMenuOpenState(false);
   };
 
   const links = [
@@ -80,25 +214,25 @@ const Navbar = () => {
         />
         {links.map(([key, label]) => (
           <li key={key}>
-            <AnchorLink
+            <a
               href={`#${key}`}
               className="anchor-link"
-              offset={50}
+              onClick={() => handleClick(key)}
             >
-              <p onClick={() => handleClick(key)}>{label}</p>
-            </AnchorLink>
+              {label}
+            </a>
             {active === key && <div className="underline" />}
           </li>
         ))}
       </ul>
       <div className="nav-connect">
-        <AnchorLink
+        <a
           href="#contact"
           className="anchor-link"
-          offset={50}
+          onClick={() => handleClick('contact')}
         >
           Hire Me
-        </AnchorLink>
+        </a>
       </div>
     </nav>
   );
